@@ -13,6 +13,11 @@ Enhance your conversational experience with AI-PROMPT, a user-friendly command-l
 1. Download the latest release from the [Releases](https://github.com/Kamanati/AI-PROMPT/releases) page.
 2. Run the script in your terminal to start chatting with AI.
 
+## Installation 
+```bash
+git clone https://github.com/Kamanati/AI-PROMPT && cd AI-PROMPT && bash setup.sh
+```
+
 ## Usage
 
 1. Run the script.
