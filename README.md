@@ -7,6 +7,14 @@ Enhance your conversational experience with AI-PROMPT, a user-friendly command-l
 - **Customizable Voices:** Personalize your AI conversations with various voice options.
 - **Audio Responses:** Immerse yourself with dynamic audio generated for a more engaging chat.
 - **Effortless Updates:** Stay on the cutting edge with easy-to-install updates.
+  
+## Supported Operating Systems
+
+AI-PROMPT is designed to run on the following operating systems:
+
+- Termux
+- Linux
+- macOS
 
 ## Getting Started
 
