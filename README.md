@@ -18,8 +18,48 @@ Enhance your conversational experience with AI-PROMPT, a user-friendly command-l
 git clone https://github.com/Kamanati/AI-PROMPT && cd AI-PROMPT && bash setup.sh
 ```
 
-## Usage
+## commands
+```shell
+ai -h
+Help option selected:
+-v, --voice     Voice settings(advance)
+-h, --help      show this option exit.
+-V, --voice-setup       Setup the voice features
+NOTE:
+Use '#info' in the prompt to see more option
+```
+you can use commands in prompt by using `#`
+in the AI-PROMPT, it will automatically shows the commands. if not, you can use `#help` to see Availabe Options:
+### example 1
+```shell
+$~ >ai
+Use [#info] to see more options
+AI-PROMPT> #
+             #audio
+             #about
+             #multi
+             #sin
+             #help
+             #info
+             #chip
 
+```
+### Example 2
+```shell
+$~ > ai
+Use [#info] to see more options
+AI-PROMPT> #help
+Available commands:
+• [#multi]: Switch to Multiline mode(ALT + ⏎ (ENTER) to enter)
+• [#sin]: Switch to Single line mode
+• [#info]: Show the info
+• [clr]: clear the conversation
+• [undo]: Restore the conversation
+• [q,exit,quit]: quit or exit program
+• [#about]: See the about
+• [#chip]: See the ip address(Currently unavailable)
+```
+## Usage
 1. Run the script.
 2. Engage in easygoing conversations.
 3. Explore voice settings for a personalized experience.
