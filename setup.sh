@@ -12,7 +12,7 @@ command_exists() {
 
 # Install Python dependencies
 echo "Installing Python dependencies:"
-pip install tqdm | tqdm --unit "package" --total 100 --desc "Progress"
+pip install tqdm==4.66.1
 
 # Install specified Python libraries
 echo "Installing specific Python libraries:"
