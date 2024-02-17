@@ -6,8 +6,18 @@ command_exists() {
 }
 
 # Install Python dependencies
-#!/bin/bash
-
+if command_exists python; then 
+     printf "\r"
+else
+     echo "Please install python first"
+     exit 1
+fi 
+if command_exists pip; then 
+     printf "\r"
+else
+     echo "please install pip first"
+     exit 1
+fi
 # Function to check if a command is available
 
 # Install Python dependencies
