@@ -99,6 +99,8 @@
 #
 # For inquiries or feedback, reach out to the author via the provided contact details.
 
+version_number = "1.0"
+
 import platform
 
 def get_operating_system():
@@ -152,6 +154,30 @@ elif '-H' in sys.argv or '--history' in sys.argv:
         print(f"Error: {e}")
      sys.exit(1)
      pass
+elif '-u' in sys.argv or '--update' in sys.argv:
+    import requests
+    import os
+    from difflib import unified_diff
+    from subprocess import run
+    agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/121.0"
+    current_script = os.path.realpath(__file__)
+    
+    update = requests.get("https://raw.githubusercontent.com/Kamanati/AI-PROMPT/main/ai.py").text
+
+    diff = list(unified_diff(open(current_script).readlines(), update.splitlines(), lineterm=''))
+
+    if not diff:
+        print("Script is up to date :)")
+    else:
+        with open(current_script, 'w') as script_file:
+            script_file.write(update)
+
+        print("Script has been updated")
+
+if __name__ == "__main__":
+    update_script()
+
+     #file_path = '.AI-PROMPT/history.txt'
 def animate_loading(loading_finished):
     text = "Starting the ai prompt"
     while not loading_finished.is_set():
