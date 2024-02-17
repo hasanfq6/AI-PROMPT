@@ -6,17 +6,21 @@ command_exists() {
 }
 
 # Install Python dependencies
-if command_exists python; then 
-     printf "\r"
+if command_exists "python"; then
+    echo "mpv is already installed."
 else
-     echo "Please install python first"
-     exit 1
-fi 
-if command_exists pip; then 
-     printf "\r"
-else
-     echo "please install pip first"
-     exit 1
+    # Install mpv based on the platform
+    if [ -d "/data/data/com.termux" ]; then
+        pkg install python
+    elif command_exists "brew"; then
+        brew install python
+    elif command_exists "apt-get"; then
+        sudo apt-get install -y python
+    elif command_exists "yum"; then
+        sudo yum install -y python
+    else
+        echo "Error: Unable to install python. Please install it manually."
+    fi
 fi
 # Function to check if a command is available
 
