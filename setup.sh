@@ -81,4 +81,4 @@ else
     echo "Error: Unsupported operating system. Please copy ai.py to usr/bin/ manually."
 fi
 
-echo "now run the AI-PROMPT using the command \033[32mai\033[0m"
+echo -e "now run the AI-PROMPT using the command \033[32mai\033[0m"
