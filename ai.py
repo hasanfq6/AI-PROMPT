@@ -130,7 +130,7 @@ import time
 import sys
 
 if '-h' in sys.argv or '--help' in sys.argv:
-    print(f"Help option selected:\n-v, --voice	Voice settings(advance)\n-h, --help	show this option exit.\n-V, --voice-setup	Setup the voice features\nNOTE:\nUse '#info' in the prompt to see more option")
+    print(f"Help option selected:\n-v, --voice	Voice settings(advance)\n-h, --help	show this option exit.\n-V, --voice-setup	Setup the voice features\n-u, --update	Update the script\nNOTE:\nUse '#info' in the prompt to see more option")
     sys.exit(1)
 elif '-v' in sys.argv or '--voice' in sys.argv:
      print("Voice settings:\ncurrent voice\nFree - America(male)\nElevenlabs - Freya")
@@ -168,14 +168,13 @@ elif '-u' in sys.argv or '--update' in sys.argv:
 
     if not diff:
         print("Script is up to date :)")
+        sys.exit()
     else:
         with open(current_script, 'w') as script_file:
             script_file.write(update)
 
         print("Script has been updated")
-
-if __name__ == "__main__":
-    update_script()
+        sys.exit(0)
 
      #file_path = '.AI-PROMPT/history.txt'
 def animate_loading(loading_finished):
