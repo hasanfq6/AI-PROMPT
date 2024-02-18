@@ -209,6 +209,10 @@ from prompt_toolkit.history import FileHistory
 from prompt_toolkit.styles import Style
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit.shortcuts import ProgressBar
+from prompt_toolkit import PromptSession
+from prompt_toolkit.history import InMemoryHistory
+from prompt_toolkit.auto_suggest import AutoSuggestFromHistory
+import random
 import socks
 
 # Signal that the loading is finished
@@ -419,6 +423,9 @@ prevois_ques = ""
 # Initialize colorama
 import time
 
+def bottom_toolbar():
+    return HTML('This is a <b><style bg="ansired">AI-PROMPT</style></b>!')
+
 def gen_name(input_string):
     # Replace spaces and special characters with underscores
     result_string = ''.join('_' if (char.isspace() or not char.isalnum()) else char for char in input_string)
@@ -428,9 +435,12 @@ def gen_name(input_string):
 def main():
  print(f"Use {blue}[{green}#info{blue}]{re} to see more options")
  response = ""
+ session = PromptSession()
+ command_mode = False
+# Start a thread to update the quote
  while True:
 #    user_message = input("User: ")
-    commands = ['#audio','#about','#multi', '#sin', '#help', '#info','#chip','clr','undo','q']  # List of available commands
+    commands = ['#audio','#about','#multi', '#sin', '#help','#info','#chip','clr','undo','q']  # List of available commands
 
     completer = WordCompleter(commands)
     home_directory = os.path.expanduser('~')
@@ -438,10 +448,17 @@ def main():
     history = FileHistory(history_path)
 
     style = Style.from_dict({'prompt': 'ansigreen'})
-    user_message = prompt('AI-PROMPT> ', style=style,history=history,complete_while_typing=True,completer=completer)
+    user_message = prompt('AI-PROMPT> ', style=style,history=history,complete_while_typing=True,completer=completer,auto_suggest=AutoSuggestFromHistory())
 
+    if user_message.startswith('!'):
+            shell_command = user_message[1:]
+            try:
+                subprocess.run(shell_command, shell=True, check=True)
+            except subprocess.CalledProcessError as e:
+                print(f"Error executing command: {e}")
+            continue
     if user_message == "#multi":
-         user_message = prompt('AI-PROMPT> ', multiline=True, style=style,history=history,complete_while_typing=True)
+         user_message = prompt('AI-PROMPT> ', multiline=True, style=style,history=history,complete_while_typing=True,auto_suggest=AutoSuggestFromHistory())
     elif user_message == "#sin":
          user_message = prompt('AI-PROMPT> ', style=style,history=history,complete_while_typing=True)
     elif user_message == "#info":
