@@ -7,6 +7,18 @@ Enhance your conversational experience with AI-PROMPT, a user-friendly command-l
 - **Customizable Voices:** Personalize your AI conversations with various voice options.
 - **Audio Responses:** Immerse yourself with dynamic audio generated for a more engaging chat.
 - **Effortless Updates:** Stay on the cutting edge with easy-to-install updates.
+
+- Seamless interaction with an AI-powered prompt system.
+- Voice settings customization for a personalized experience.
+- Generation of audio responses to make interactions more engaging.
+- Flexible prompt modes (single-line and multi-line) to suit various preferences.
+- Command-line interface with support for command parsing and argument handling.
+- Threading and progress indicators for concurrent tasks and user feedback.
+- Integration with chatbot APIs to retrieve responses based on user input.
+- Logging of chat history and interactions for reference and analysis.
+- User-friendly interface using `prompt_toolkit` with auto-suggestion and command history.
+- External commands execution (`!command`) directly from the prompt.
+
   
 ## Supported Operating Systems
 
