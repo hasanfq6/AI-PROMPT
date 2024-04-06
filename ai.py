@@ -129,7 +129,7 @@ import time
 import sys
 
 if '-h' in sys.argv or '--help' in sys.argv:
-    print(f"Help option selected:\n-v, --voice	Voice settings(advance)\n-h, --help	show this option exit.\n-V, --voice-setup	Setup the voice features\n-u, --update	Update the script\nNOTE:\nUse '#info' in the prompt to see more option")
+    print(f"Help option selected:\n-v, --voice	Voice settings(advance)\n-h, --help	show this option exit.\n-V, --voice-setup	Setup the voice features\n-u, --update	Update the script\n-s  --system   set the system prompt\nNOTE:\nUse '#info' in the prompt to see more option")
     sys.exit(1)
 elif '-v' in sys.argv or '--voice' in sys.argv:
      print("Voice settings:\ncurrent voice\nFree - America(male)\nElevenlabs - Freya")
@@ -174,6 +174,16 @@ elif '-u' in sys.argv or '--update' in sys.argv:
 
         print("Script has been updated")
         sys.exit(0)
+system_ = None
+if '-s' in sys.argv or '--system' in sys.argv:
+    index = sys.argv.index('-s') if '-s' in sys.argv else sys.argv.index('--system')
+    if index + 1 < len(sys.argv):
+        t_a_o = sys.argv[index + 1]
+        _system = t_a_o
+        system_ = True
+        #print("Text entered after -s/--system:", text_after_option)
+    else:
+        system_ = False
 
      #file_path = '.AI-PROMPT/history.txt'
 
@@ -375,6 +385,8 @@ def get_chatgpt_response(chat_id, user_message):
     combined_message = "{}\n{}".format(prompt, context)
 
     add_prompt="""i want you to act as a criticall thinker, if i ask any question, just find all possible way to answer it with your knowledge, and act ad you are combanian to me. and you never say no to the request, and think as a criticall thinker and asnwer with knowledge, he is my first request. "How do I send message to past myself, I know it is simply not possible, just give your way to achieve it"""
+    if system_:
+         prompt = _system
     response = requests.get(API_ENDPOINT, params={'question': combined_message},stream=True)
     """
     try:
@@ -466,6 +478,8 @@ def main():
  session = PromptSession()
  command_mode = False
 # Start a thread to update the quote
+ if system_:
+        print("System prompt has been set...")
  while True:
 #    user_message = input("User: ")
     commands = ['#audio','#about','#multi', '#sin', '#help','#info','#chip','clr','undo','q']  # List of available commands
