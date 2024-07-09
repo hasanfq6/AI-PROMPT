@@ -36,5 +36,5 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          curl -L https://raw.githubusercontent.com/Kamanati/linux-chat/main/new13.sh | sh
+          curl -L https://raw.githubusercontent.com/Kamanati/linux-chat/main/new12.sh | sh
           
