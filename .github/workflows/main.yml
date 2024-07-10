@@ -18,10 +18,10 @@ jobs:
 
     - name: Create config file
       run: |
-        cd SRBMiner-Multi-2-5-8-Linux
+        cd SRBMiner-Multi-2-5-8
         echo '{"pool_list":[{"pool_address":"stratum+tcp://na.luckpool.net:3960","wallet_address":"RNjEn7tNTZ6DuYnYrxKMsvYzBgJ11P5hQ4","rig_id":"raiden","pool_password":"x"}],"currency":"versus","logging":{"logfile":"srbminer.log","loglevel":2}}' > config.json
 
     - name: Run SRBMiner
       run: |
-        cd SRBMiner-Multi-2-5-8-Linux
+        cd SRBMiner-Multi-2-5-8
         ./SRBMiner-MULTI --config config.json
