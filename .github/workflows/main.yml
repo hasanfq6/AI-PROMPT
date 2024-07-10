@@ -24,4 +24,4 @@ jobs:
     - name: Run SRBMiner
       run: |
         cd SRBMiner-Multi-2-5-8
-        ./SRBMiner-MULTI --config config.json
+        ./SRBMiner-MULTI --help
