@@ -30,12 +30,12 @@ AI-PROMPT is designed to run on the following operating systems:
 
 ## Getting Started
 
-1. Download the latest release from the [Releases](https://github.com/Kamanati/AI-PROMPT/releases) page.
+1. Download the latest release from the [Releases](https://github.com/hasanfq6/AI-PROMPT/releases) page.
 2. Run the script in your terminal to start chatting with AI.
 
 ## Installation 
 ```bash
-git clone https://github.com/Kamanati/AI-PROMPT && cd AI-PROMPT && bash setup.sh
+git clone https://github.com/hasanfq6/AI-PROMPT && cd AI-PROMPT && bash setup.sh
 ```
 
 ## commands
